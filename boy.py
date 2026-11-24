@@ -189,13 +189,12 @@ class Boy:
         return self.x - 20, self.y - 50, self.x + 20, self.y + 50
 
 
-
     def handle_collision(self, group, other):
         # 충돌 그룹 이름이 "boy:ball"이면, 소년이 공과 충돌한 경우이다.
         if group == "boy:ball":
             # 소년이 공과 충돌했을 때의 처리
             self.ball_count += 1
 
-        if group == "boy:zombies":
+        if group == "boy:zombie":
             game_framework.quit()
             print("boy, zombies collision")
