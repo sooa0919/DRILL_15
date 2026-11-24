@@ -144,6 +144,7 @@ class Boy:
         ball = Ball(self.x + self.face_dir * 40, self.y + 60, self.face_dir,
                     1 if self.item == 'Ball' else 2)
         game_world.add_oject(ball)
+        game_world.add_collision_pair('zombie:ball', None,ball)
 
     def pause(self):
         self.pressed_keys.clear()
@@ -197,4 +198,3 @@ class Boy:
 
         if group == "boy:zombie":
             game_framework.quit()
-            print("boy, zombies collision")
