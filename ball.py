@@ -1,3 +1,5 @@
+from tokenize import group
+
 from pico2d import get_canvas_width, load_image
 
 import game_world
@@ -44,5 +46,8 @@ class Ball:
 
     def handle_collision(self, group, other):
         if group == 'boy:ball':
+            game_world.remove_object(self)
+
+        if group == 'zombies:ball':
             game_world.remove_object(self)
             

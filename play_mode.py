@@ -1,4 +1,5 @@
 from pico2d import *
+import ball
 import game_world
 import game_framework
 from boy import Boy
@@ -35,7 +36,8 @@ def init():
     global balls
     balls = [Ball(random.randint(100, 1700), 60, 0) for _ in range(30)]
     
-
+    zombies = [Zombie() for _ in range(4)]
+    game_world.add_objects(zombies, 1)  
     
     game_world.add_objects(balls, 1)
     game_world.add_oject(grass, 0)
@@ -46,12 +48,13 @@ def init():
     for ball in balls:
         game_world.add_collision_pair("boy:ball", None, ball)
 
-    game_world.add_collision_pair('ball:zombies', None, SDL_JoyBallEvent)
-    for ball in ball:
-        game_world.add_collision_pair("boy:ball", None, ball)
+    # 좀비와 볼 사이 충돌 페어 등록
+    game_world.add_collision_pair('zombies:ball',zombies, None)
 
-    zombies = [Zombie() for _ in range(4)]
-    game_world.add_objects(zombies, 1)
+    #좀비 / 소년 충돌 페어 등록
+    game_world.add_collision_pair('aboy:zombies', boy, None)
+    
+
 
 def pause():
     boy.pause()
