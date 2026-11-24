@@ -60,7 +60,7 @@ class Zombie:
             pass
 
         if group == "zombie:ball":
-            pass
+            game_world.remove_object(self)
 
 
     
