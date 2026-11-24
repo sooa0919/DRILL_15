@@ -195,3 +195,7 @@ class Boy:
         if group == "boy:ball":
             # 소년이 공과 충돌했을 때의 처리
             self.ball_count += 1
+
+        if group == "boy:zombies":
+            game_framework.quit()
+            print("boy, zombies collision")
