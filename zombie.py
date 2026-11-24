@@ -59,5 +59,8 @@ class Zombie:
         if group == "boy:zombie":
             pass
 
+        if group == "zombie:ball":
+            pass
+
 
     
